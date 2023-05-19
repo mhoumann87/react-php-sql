@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './components/Home';
+import ListUser from './components/ListUser';
+import CreateUser from './components/CreateUser';
+import EditUser from './components/EditUser';
+import DeleteUser from './components/DeleteUser';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>App</h1>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/list-user' element={<ListUser />} />
+        <Route path='/create-user' element={<CreateUser />} />
+        <Route path='/edit-user' element={<EditUser />} />
+        <Route path='/delete-user' element={<DeleteUser />} />
+      </Routes>
     </>
   );
 }
