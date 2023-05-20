@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -8,17 +10,126 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* Variables */
+  --clr-bg: #bfbfbf;
+  --clr-accent: #403d3f;
+  --clr-accent-light: #6a6e73;
+  --clr-text: #262325;
+  --clr-text-light: #f2f2f2;
+  --clr-link: #d406bb;
+  --clr-link-hover: #d406bccb;
+
+  --fs-small: 1rem;
+  --fs-regular: 1.25rem;
+  --fs-med: 1.75rem;
+  --fs-large: 2.4rem;
+  --fs-xlarge: 3rem;
+
+  --fw-thin: 100;
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
 }
 
 body {
   margin: 0;
   display: grid;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  background-color: var(--clr-bg);
 }
 
 h1 {
-  font-size: 3.2em;
+  margin: 0;
+  font-size: var(--fs-xlarge);
   line-height: 1.1;
+}
+
+h1,
+h2 {
+  font-weight: var(--fw-thin);
+}
+
+a {
+  color: var(--clr-link);
+  transition: all 350ms ease;
+}
+
+a:where(:hover, :focus-visible) {
+  color: var(--clr-link-hover);
+}
+
+/* Utility clases */
+.container {
+  width: calc(100% - 1.5rem);
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 680px) {
+  .container {
+    width: min(80%, 1400px);
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+  flex-direction: var(--flex-dir, row);
+  justify-content: var(--flex-justify, space-between);
+  align-items: var(--flex-align, center);
+  gap: var(--flex-gap, 1rem);
+}
+
+/* components */
+
+header {
+  position: sticky;
+  --flex-dir: column;
+  background-color: var(--clr-accent-light);
+  padding-block: 0.75rem;
+}
+
+@media screen and (min-width: 680px) {
+  header {
+    --flex-dir: row;
+  }
+}
+
+header a {
+  color: var(--clr-text-light);
+  text-decoration: none;
+}
+
+nav {
+  --flex-dir: row;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  color: var(--clr-link);
+  font-size: var(--fs-regular);
+  border: 1px solid var(--clr-text-light);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 350ms ease;
+}
+
+nav ul li:where(:hover, :focus-visible) {
+  background-color: var(--clr-text-light);
+}
+
+nav ul li:where(:hover, :focus-visible) a {
+  color: var(--clr-link);
 }

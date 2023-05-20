@@ -5,6 +5,7 @@ import ListUser from './components/ListUser';
 import CreateUser from './components/CreateUser';
 import EditUser from './components/EditUser';
 import DeleteUser from './components/DeleteUser';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/edit-user' element={<EditUser />} />
         <Route path='/delete-user' element={<DeleteUser />} />
       </Routes>
+      <Footer />
     </>
   );
 }
